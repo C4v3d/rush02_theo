@@ -1,3 +1,5 @@
+#include <stdlib>
+
 char	*ft_strcpy(char *dest, char *src)
 {
 	while (*src)
@@ -8,7 +10,7 @@ char	*ft_strcpy(char *dest, char *src)
 
 char	*ft_strncpy(char *dest, char *src, int n)
 {
-	while (n-- >= 0)
+	while (n-- > 0)
 	{
 		if (!*src)
 			*dest++ = '\0';
@@ -21,15 +23,14 @@ char	*ft_strncpy(char *dest, char *src, int n)
 
 int	ft_strcmp(char *str1, char *str2)
 {
-	while (*str1 || *str2)
+	int i;
+
+	i = 0;
+	while (str1[i] || str2[i])
 	{
-		if (*str1 < *str2)
-			return (*str1 - *str2);
-		else if (*str1 > *str2)
-			return (*str1 - *str2);
-		else
-			*str1++;
-			*str2++;
+		if (str1[i] != str2[i])
+			return (str1[i] - str2[i])
+		i++;
 	}
 	return (0);
 }
@@ -49,23 +50,22 @@ char	*ft_strdup(char *src)
 	char *a;
 	int len;
 
-	len = ft_strlen(src) + 1;
-	a = malloc(len * sizeof(char));
+	len = ft_strlen(src);
+	a = malloc((len * sizeof(char)) + 1);
 	if (a == NULL)
-		return a = NULL;
+		return a;
 	while (*src)
 		*a++ = *src++;
 	*a = '\0';
 	return (a);
 }
 
-char	*ft_strchr(char *str, char c)
+char	ft_strchr(char *str, char c)
 {
 	while (*str++)
 	{
 		if (*str == c)
 			return (*str);
-		else
-			return (*str);
 	}
+	return (0);
 }
