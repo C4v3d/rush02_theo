@@ -11,7 +11,7 @@ static char *trim(char *str) {
     while (*str == ' ' || *str == '\t' || *str == '\n' || *str == '\r')
         str++;
     if (*str == 0) return str;
-    end = str + strlen(str) - 1;
+    end = str + ft_strlen(str) - 1;
     while (end > str && (*end == ' ' || *end == '\t' || *end == '\n' || *end == '\r'))
         end--;
     end[1] = '\0';
@@ -21,8 +21,8 @@ static char *trim(char *str) {
 static t_dict_entry *create_entry(const char *number, const char *word) {
     t_dict_entry *entry = malloc(sizeof(t_dict_entry));
     if (!entry) return NULL;
-    entry->number = strdup(trim((char *)number));
-    entry->word = strdup(trim((char *)word));
+    entry->number = ft_strdup(trim((char *)number));
+    entry->word = ft_strdup(trim((char *)word));
     entry->next = NULL;
     return entry;
 }
@@ -54,16 +54,16 @@ t_dict_entry *load_dictionary(const char *filename) {
         char *start = buffer;
         char *newline = NULL;
         
-        while ((newline = strchr(start, '\n')) != NULL) {
+        while ((newline = ft_strchr(start, '\n')) != NULL) {
             *newline = '\0';
             if (line == NULL) {
-                line = strdup(start);
+                line = ft_strdup(start);
             } else {
                 line = realloc(line, len + (newline - start) + 1);
                 strcat(line, start);
             }
             len = 0;
-            char *colon = strchr(line, ':');
+            char *colon = ft_strchr(line, ':');
             if (colon) {
                 *colon = '\0';
                 t_dict_entry *entry = create_entry(line, colon + 1);
@@ -74,7 +74,7 @@ t_dict_entry *load_dictionary(const char *filename) {
             start = newline + 1;
         }
         if (*start != '\0') {
-            len = strlen(start);
+            len = ft_strlen(start);
             line = malloc(len + 1);
             strcpy(line, start);
         }
@@ -86,7 +86,7 @@ t_dict_entry *load_dictionary(const char *filename) {
 
 char *get_word(t_dict_entry *dict, const char *number) {
     while (dict) {
-        if (strcmp(dict->number, number) == 0)
+        if (ft_strcmp(dict->number, number) == 0)
             return dict->word;
         dict = dict->next;
     }
