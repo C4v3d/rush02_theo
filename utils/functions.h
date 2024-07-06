@@ -6,7 +6,7 @@
 /*   By: nerfy <nerfy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 20:15:28 by nerfy             #+#    #+#             */
-/*   Updated: 2024/07/06 21:19:45 by nerfy            ###   ########.fr       */
+/*   Updated: 2024/07/06 22:23:36 by nerfy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ char	*ft_strchr(const char *str, char c);
 char	*ft_strcat(char *dest, const char *src);
 int	ft_isdigit(int c);
 void	ft_bzero(void *s, size_t n);
+int	ft_atoi(const char *str);
+char	*trim(char *str);
 
 #endif
 

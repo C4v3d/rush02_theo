@@ -6,7 +6,7 @@
 /*   By: nerfy <nerfy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 20:48:06 by nerfy             #+#    #+#             */
-/*   Updated: 2024/07/06 21:26:39 by nerfy            ###   ########.fr       */
+/*   Updated: 2024/07/06 22:55:47 by nerfy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,8 @@ int	ft_strcmp(const char *str1, const char *str2)
 char	*ft_strdup(const char *src)
 {
 	char	*a;
-	int	len;
-	int	i;
+	int		len;
+	int		i;
 
 	len = ft_strlen(src);
 	a = malloc((len * sizeof(char)) + 1);

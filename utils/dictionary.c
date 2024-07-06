@@ -6,7 +6,7 @@
 /*   By: nerfy <nerfy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 20:07:04 by nerfy             #+#    #+#             */
-/*   Updated: 2024/07/06 21:15:05 by nerfy            ###   ########.fr       */
+/*   Updated: 2024/07/06 22:24:08 by nerfy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,6 @@
 #include "functions.h"
 
 #define BUFFER_SIZE 1024
-
-static char	*trim(char *str)
-{
-	char	*end;
-
-	while (*str == ' ' || *str == '\t' || *str == '\n' || *str == '\r')
-		str++;
-	if (*str == 0)
-		return (str);
-	end = str + ft_strlen(str) - 1;
-	while (end > str && (*end == ' ' || *end == '\t' || *end == '\n' || *end == '\r'))
-		end--;
-	end[1] = '\0';
-	return (str);
-}
 
 static t_dict_entry	*create_entry(const char *number, const char *word)
 {
@@ -74,7 +59,10 @@ t_dict_entry	*load_dictionary(const char *filename)
 
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
+	{
+		write(1, "Dict Error\n", 11);
 		return (NULL);
+	}
 	while ((bytes_read = read(fd, buffer, BUFFER_SIZE)) > 0)
 	{
 		buffer[bytes_read] = '\0';
@@ -100,6 +88,13 @@ t_dict_entry	*load_dictionary(const char *filename)
 				t_dict_entry	*entry = create_entry(line, colon + 1);
 				if (entry)
 					add_entry(&head, entry);
+				else
+				{
+					free(line);
+					free_dictionary(head);
+					write(1, "Dict Error\n", 11);
+					return (NULL);
+				}
 			}
 			free(line);
 			line = NULL;
@@ -140,3 +135,4 @@ void	free_dictionary(t_dict_entry *dict)
 		free(temp);
 	}
 }
+

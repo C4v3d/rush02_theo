@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   scale_words.h                                      :+:      :+:    :+:   */
+/*   handling.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nerfy <nerfy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/06 22:10:16 by nerfy             #+#    #+#             */
-/*   Updated: 2024/07/06 22:56:52 by nerfy            ###   ########.fr       */
+/*   Created: 2024/07/07 00:17:15 by nerfy             #+#    #+#             */
+/*   Updated: 2024/07/07 00:17:15 by nerfy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCALE_WORDS_H
-# define SCALE_WORDS_H
+#ifndef HANDLING_H
+# define HANDLING_H
 
-# include "main_helpers.h"
-# include "dictionary.h"
-
-const char	*get_scale_word(t_dict_entry *dict, int scale);
+void	handle_hundreds(t_dict_entry *dict, const char *group);
+void	handle_tens(t_dict_entry *dict, const char *group, int len);
+void	print_tens_and_units(t_dict_entry *dict,
+			char *word, const char *group, int len);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: nerfy <nerfy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 20:47:14 by nerfy             #+#    #+#             */
-/*   Updated: 2024/07/06 21:51:29 by nerfy            ###   ########.fr       */
+/*   Updated: 2024/07/07 00:06:39 by nerfy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "main_helpers.h"
 #include "parsing.h"
 #include <stdio.h>
+#include "utility.h"
 
 #define DEFAULT_DICT "dict/en.dict"
 #define BUFFER_SIZE 1024
@@ -25,6 +26,10 @@ void print_error(const char *message) {
 }
 
 int is_valid_number(const char *str) {
+    while (*str == ' ' || *str == '\t' || *str == '\n' || *str == '\r')
+        str++;
+    if (*str == '-' || *str == '+')
+        str++;
     if (*str == '\0')
         return 0;
     while (*str) {
@@ -96,14 +101,16 @@ int handle_args(int argc, char **argv, char *number, const char **dict_filename)
             print_error("Error\n");
             return 1;
         }
-        ft_strncpy(number, argv[1], BUFFER_SIZE - 1);
+        int num = ft_atoi(argv[1]);
+        snprintf(number, BUFFER_SIZE, "%d", num);
     } else if (argc == 3) {
         *dict_filename = argv[1];
         if (!is_valid_number(argv[2])) {
             print_error("Error\n");
             return 1;
         }
-        ft_strncpy(number, argv[2], BUFFER_SIZE - 1);
+        int num = ft_atoi(argv[2]);
+        snprintf(number, BUFFER_SIZE, "%d", num);
     } else {
         print_error("Error\n");
         return 1;
