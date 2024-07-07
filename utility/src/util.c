@@ -1,14 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils2.c                                           :+:      :+:    :+:   */
+/*   utils1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: timmi <timmi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/06 17:22:07 by timmi             #+#    #+#             */
-/*   Updated: 2024/07/06 17:24:17 by timmi            ###   ########.fr       */
+/*   Created: 2024/07/06 17:22:02 by timmi             #+#    #+#             */
+/*   Updated: 2024/07/06 17:22:46 by timmi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "util.h"
+#include <stdlib.h>
+
+char	*ft_strcpy(char *dest, char *src)
+{
+	while (*src)
+		*dest++ = *src++;
+	*dest = '\0';
+	return (dest);
+}
+
+char	*ft_strncpy(char *dest, char *src, int n)
+{
+	while (n-- > 0)
+	{
+		if (!*src)
+			*dest++ = '\0';
+		else
+			*dest++ = *src++;
+	}
+	*dest = '\0';
+	return (dest);
+}
+
+int	ft_strcmp(char *str1, char *str2)
+{
+	int	i;
+
+	i = 0;
+	while (str1[i] || str2[i])
+	{
+		if (str1[i] != str2[i])
+			return (str1[i] - str2[i]);
+		i++;
+	}
+	return (0);
+}
 
 int	ft_strlen(char *src)
 {
@@ -26,7 +64,7 @@ char	*ft_strdup(char *src)
 	int		len;
 
 	len = ft_strlen(src);
-	a = malloc((len * sizeof(char)) + 1);
+	a = (char*)malloc((len * sizeof(char)) + 1);
 	if (a == NULL)
 		return (a);
 	while (*src)
@@ -52,3 +90,4 @@ int	ft_is_digit(int n)
 	else
 		return (0);
 }
+
