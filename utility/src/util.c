@@ -91,3 +91,14 @@ int	ft_is_digit(int n)
 		return (0);
 }
 
+char *ft_strcat(char *dest, char *src)
+{
+	char *start;
+
+	start = dest;
+	while (*dest)
+		dest++;
+	while (*src)
+		*dest++ = *src++;
+	return (start);
+}
