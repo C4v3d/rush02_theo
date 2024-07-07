@@ -102,3 +102,42 @@ char *ft_strcat(char *dest, char *src)
 		*dest++ = *src++;
 	return (start);
 }
+
+int	ft_atoi(const char *str)
+{
+	int	result;
+	int	sign;
+
+	result = 0;
+	sign = 1;
+	while (*str == ' ' || *str == '\t' || *str == '\n' || *str == '\r')
+		str++;
+	if (*str == '-' || *str == '+')
+	{
+		if (*str == '-')
+			sign = -1;
+		str++;
+	}
+	while (*str >= '0' && *str <= '9')
+	{
+		result = result * 10 + (*str - '0');
+		str++;
+	}
+	return (result * sign);
+}
+
+char	*trim(char *str)
+{
+	char	*end;
+
+	while (*str == ' ' || *str == '\t' || *str == '\n' || *str == '\r')
+		str++;
+	if (*str == 0)
+		return (str);
+	end = str + ft_strlen(str) - 1;
+	while (end > str && (*end == ' '
+			|| *end == '\t' || *end == '\n' || *end == '\r'))
+		end--;
+	end[1] = '\0';
+	return (str);
+}
