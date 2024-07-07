@@ -6,7 +6,7 @@
 /*   By: nerfy <nerfy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 20:07:15 by nerfy             #+#    #+#             */
-/*   Updated: 2024/07/06 22:49:30 by nerfy            ###   ########.fr       */
+/*   Updated: 2024/07/07 02:01:01 by nerfy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ int	ft_atoi(const char *str)
 	int	result;
 	int	sign;
 
-	// Ignorer les espaces en début de chaîne
 	while (*str == ' ' || *str == '\t' || *str == '\n' || *str == '\r')
 		str++;
 	sign = 1;
@@ -64,7 +63,8 @@ char	*trim(char *str)
 	if (*str == 0)
 		return (str);
 	end = str + ft_strlen(str) - 1;
-	while (end > str && (*end == ' ' || *end == '\t' || *end == '\n' || *end == '\r'))
+	while (end > str && (*end == ' '
+			|| *end == '\t' || *end == '\n' || *end == '\r'))
 		end--;
 	end[1] = '\0';
 	return (str);

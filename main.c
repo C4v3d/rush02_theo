@@ -6,14 +6,16 @@
 /*   By: nerfy <nerfy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 20:10:06 by nerfy             #+#    #+#             */
-/*   Updated: 2024/07/06 21:14:09 by nerfy            ###   ########.fr       */
+/*   Updated: 2024/07/07 02:46:32 by nerfy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include "dictionary.h"
-#include "main_helpers.h"
-#include "functions.h"
+#include "utils/dictionary/dictionary.h"
+#include "utils/main_helpers/main_helpers1.h"
+#include "utils/main_helpers/main_helpers2.h"
+#include "utils/main_helpers/main_helpers3.h"
+#include "utils/functions.h"
 
 #define DEFAULT_DICT "dict/en.dict"
 #define BUFFER_SIZE 1024

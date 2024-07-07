@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   scale_words.h                                      :+:      :+:    :+:   */
+/*   main_helpers_common.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nerfy <nerfy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/06 22:10:16 by nerfy             #+#    #+#             */
-/*   Updated: 2024/07/06 22:56:52 by nerfy            ###   ########.fr       */
+/*   Created: 2024/07/07 01:40:57 by nerfy             #+#    #+#             */
+/*   Updated: 2024/07/07 01:41:03 by nerfy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCALE_WORDS_H
-# define SCALE_WORDS_H
+#ifndef MAIN_HELPERS_COMMON_H
+# define MAIN_HELPERS_COMMON_H
 
-# include "main_helpers.h"
-# include "dictionary.h"
-
-const char	*get_scale_word(t_dict_entry *dict, int scale);
+# define BUFFER_SIZE 1024
 
 #endif

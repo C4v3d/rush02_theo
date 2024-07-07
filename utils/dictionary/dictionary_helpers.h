@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   string_utils.h                                     :+:      :+:    :+:   */
+/*   dictionary_helpers.h                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nerfy <nerfy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/07 00:36:24 by nerfy             #+#    #+#             */
-/*   Updated: 2024/07/07 00:36:25 by nerfy            ###   ########.fr       */
+/*   Created: 2024/07/07 02:30:50 by nerfy             #+#    #+#             */
+/*   Updated: 2024/07/07 03:26:52 by nerfy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRING_UTILS_H
-# define STRING_UTILS_H
+#ifndef DICTIONARY_HELPERS_H
+# define DICTIONARY_HELPERS_H
 
-int		ft_strlen(const char *src);
-char	*ft_strcpy(char *dest, const char *src);
-char	*ft_strncpy(char *dest, const char *src, int n);
-int		ft_strcmp(const char *str1, const char *str2);
-char	*ft_strdup(const char *src);
+# include "dictionary.h"
+
+t_dict_entry	*create_entry(const char *number, const char *word);
+void			add_entry(t_dict_entry **head, t_dict_entry *new_entry);
+void			process_line(char *line, t_dict_entry **head);
 
 #endif

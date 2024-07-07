@@ -6,13 +6,15 @@
 /*   By: nerfy <nerfy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 17:15:27 by cbopp             #+#    #+#             */
-/*   Updated: 2024/07/07 00:16:52 by nerfy            ###   ########.fr       */
+/*   Updated: 2024/07/07 01:52:39 by nerfy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "scale_words.h"
-#include "main_helpers.h"
+#include "main_helpers1.h"
+#include "main_helpers2.h"
+#include "main_helpers3.h"
 #include "dictionary.h"
 #include "string_utils.h"
 #include "handling.h"
